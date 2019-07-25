@@ -4,7 +4,7 @@
 #include <string.h>
 void func1();
 void func2();
-char *String_stitching(char *str1, char *str2);
+char *String_stitching(char *str1, char *str2);//字符串拼接
 int main()
 {
     func1();
@@ -19,6 +19,7 @@ void func1()
     char *str2 = "world";
     char *str = String_stitching(str1, str2);
     printf("%s\n", str);
+    free(str);
 }
 
 void func2()
@@ -33,8 +34,9 @@ void func2()
     str2[3] = '\0';
     char *str = String_stitching(str2, str1);
     printf("%s\n", str);
+    free(str);
 }
-char *String_stitching(char *str1, char *str2)
+char *String_stitching(char *str1, char *str2)//字符串拼接
 {
     char *str = (char*)malloc(strlen(str1)+strlen(str2));
     strcpy(str, str1);
